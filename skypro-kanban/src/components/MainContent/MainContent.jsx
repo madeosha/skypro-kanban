@@ -7,11 +7,11 @@ function MainContent() {
 				
 				<div className="main__block">
 					<div className="main__content">
-						<MainColumn />
-						<MainColumn />
-						<MainColumn />
-						<MainColumn />
-						<MainColumn />						
+						<MainColumn name={"Без статуса"} />
+						<MainColumn name={"Нужно сделать"} />
+						<MainColumn name={"В работе"} />
+						<MainColumn name={"Тестирование"} />
+						<MainColumn name={"Готово"} />						
 					</div>
 				</div>
 			</div>

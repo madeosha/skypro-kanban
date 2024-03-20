@@ -12,15 +12,14 @@ function App() {
   return (
     <>
       <div className="wrapper">
-		{/*<!-- pop-up start-->*/}
-		<PopExit />
-		<PopNewCard />
-		<PopBrowse />
-		{/*<!-- pop-up end-->*/}
-		<Header />
-		<MainContent />
-		
-    </div>
+		    {/*<!-- pop-up start-->*/}
+		    <PopExit />
+		    <PopNewCard />
+		    <PopBrowse />
+		    {/*<!-- pop-up end-->*/}
+		    <Header />
+		    <MainContent />
+      </div>
 
     <script src="js/script.js"></script>
     </>

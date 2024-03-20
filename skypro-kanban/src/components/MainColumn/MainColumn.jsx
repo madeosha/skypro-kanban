@@ -1,16 +1,13 @@
-import Card from "../Card/Card"
+import Card, { allCards } from "../Card/Card"
 
-function MainColumn() {
+function MainColumn({ name }) {
+	
     return (
         <div className="main__column column">
 			<div className="column__title">
-				<p>Без статуса</p>
+				<p>{name}</p>
 			</div>
-			<div className="cards">
-				<Card />
-				<Card />
-				<Card />
-    		</div>
+			<Card allCards = {allCards.filter((card) => card.columnTitle === name)} />
 		</div>
     )
 }
