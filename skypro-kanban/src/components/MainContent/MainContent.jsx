@@ -1,22 +1,33 @@
-import MainColumn from "../MainColumn/MainColumn"
+import MainColumn from "../MainColumn/MainColumn";
 
-function MainContent() {
+const statusList = [
+	"Без статуса",
+	"Нужно сделать",
+	"В работе",
+	"Тестирование",
+	"Готово",
+  ];
+
+function MainContent({ cards }) {
     return (
         <main className="main">
 			<div className="container">
-				
 				<div className="main__block">
 					<div className="main__content">
-						<MainColumn name={"Без статуса"} />
-						<MainColumn name={"Нужно сделать"} />
-						<MainColumn name={"В работе"} />
-						<MainColumn name={"Тестирование"} />
-						<MainColumn name={"Готово"} />						
+					{statusList.map((status) => {
+            			return (
+              				<MainColumn
+                				key={status}
+                				title={status}
+                				allCards={cards.filter((card) => card.status === status)}
+              				/>
+            			);
+          			})}					
 					</div>
 				</div>
 			</div>
 		</main>
-    )
+    );
 }
 
-export default MainContent
+export default MainContent;

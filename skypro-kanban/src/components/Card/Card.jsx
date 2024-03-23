@@ -1,101 +1,10 @@
-export const allCards = [
-    {
-    cardId: 1,
-    cardName: "Web Design",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "Без статуса",
-    style: "card__theme _orange"
-    },
-    {
-    cardId: 2,
-    cardName: "Research",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "Без статуса",
-    style: "card__theme _green"
-    },
-    {
-    cardId: 3,
-    cardName: "Web Design",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "Без статуса",
-    style: "card__theme _orange"
-    },
-    {
-    cardId: 4,
-    cardName: "Copywriting",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "Без статуса",
-    style: "card__theme _purple"
-    },
-    {
-    cardId: 5,
-    cardName: "Web Design",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "Без статуса",
-    style: "card__theme _orange"
-    },
-    { 
-    cardId: 6,
-    cardName: "Research",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "Нужно сделать",
-    style: "card__theme _green"
-    },
-    { 
-    cardId: 7,
-    cardName: "Research",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "В работе",
-    style: "card__theme _green"
-    },
-    { 
-    cardId: 8,
-    cardName: "Copywriting",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "В работе",
-    style: "card__theme _purple"
-    },
-    { 
-    cardId: 9,
-    cardName: "Web Design",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "В работе",
-    style: "card__theme _orange"
-    },
-    { 
-    cardId: 10,
-    cardName: "Research",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "Тестирование",
-    style: "card__theme _green"
-    },
-    { 
-    cardId: 11,
-    cardName: "Research",
-    cardTitle: "Название задачи",
-    cardDate: "30.10.23",
-    columnTitle: "Готово",
-    style: "card__theme _green"
-    }
-]
-
-function Card({ allCards }) {
-	const cardItems = allCards.map(card =>
-		<div key = {card.cardId} className="cards__item">
+function Card({ theme, title, date, style }) {
+	return (
+		<div className="cards__item">
             		<div className="cards__card card">
                 		<div className="card__group">
                     		<div className="card__theme">
-                        		<p className={card.style}>{card.cardName}</p>
+                        		<p className={style}>{theme}</p>
                     		</div>
                     		<a href="#popBrowse" target="_self">
                         		<div className="card__btn">
@@ -107,7 +16,7 @@ function Card({ allCards }) {
                 		</div>
                 		<div className="card__content">
                     		<a href="" target="_blank">
-                        		<h3 className="card__title">{card.cardTitle}</h3>
+                        		<h3 className="card__title">{title}</h3>
                     		</a>
                     		<div className="card__date">
                         		<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -121,14 +30,12 @@ function Card({ allCards }) {
                                 		</clipPath>
                             		</defs>
                         		</svg>
-                        		<p>{card.cardDate}</p>
+                        		<p>{date}</p>
                     		</div>
                 		</div>
             		</div>
-        			</div>
+        </div>
 	);
-    return <div className="cards">{cardItems}</div>
-	
 }
 
 export default Card;
