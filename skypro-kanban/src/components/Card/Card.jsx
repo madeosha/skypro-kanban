@@ -91,10 +91,10 @@ export const allCards = [
 
 function Card({ allCards }) {
 	const cardItems = allCards.map(card =>
-		<div key = {card.Id} className="cards__item">
+		<div key = {card.cardId} className="cards__item">
             		<div className="cards__card card">
                 		<div className="card__group">
-                    		<div className="card__theme _orange">
+                    		<div className="card__theme">
                         		<p className={card.style}>{card.cardName}</p>
                     		</div>
                     		<a href="#popBrowse" target="_self">
@@ -127,9 +127,8 @@ function Card({ allCards }) {
             		</div>
         			</div>
 	);
-    return (
-	<div className="cards">{cardItems}</div>
-	)
+    return <div className="cards">{cardItems}</div>
+	
 }
 
 export default Card;
