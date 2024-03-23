@@ -1,5 +1,6 @@
 import MainColumn from "../MainColumn/MainColumn";
 
+//Колонки
 const statusList = [
 	"Без статуса",
 	"Нужно сделать",

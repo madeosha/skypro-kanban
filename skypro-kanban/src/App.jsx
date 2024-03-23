@@ -8,8 +8,10 @@ import MainContent from './components/MainContent/MainContent'
 import { allCards } from './data';
 
 function App() {
-  const [cards, setCards] = useState(allCards);
-  const onCardAdd = () => {
+  //Создание переменной состояния
+  const [cards, setCards] = useState(allCards); 
+  //Функция добавления новой задачи
+  const onCardAdd = () => { 
     const newCard = {
       id: cards.length + 1,
       theme: "Новая задача",
@@ -20,6 +22,7 @@ function App() {
     };
     setCards([...cards, newCard]);
   };
+  //Эмуляция загрузки карточки
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {

@@ -1,8 +1,10 @@
 import { useState } from "react";
 
 function Header({ onCardAdd }) {
-	const [isOpen, setIsOpen] = useState(false);
-  	const ToggleDropdown = () => setIsOpen((prevState) => !prevState);
+	//Создание переменной состояния
+	const [isOpen, setIsOpen] = useState(false); 
+	//Функция, переключающая состояние (выпадение модального окна)
+  	const ToggleDropdown = () => setIsOpen((prevState) => !prevState); 
 
     return (
         <header className="header">
