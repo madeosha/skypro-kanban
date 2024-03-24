@@ -1,18 +1,22 @@
-import Card from "../Card/Card"
+import Card from "../Card/Card";
 
-function MainColumn() {
+function MainColumn({ title, allCards }) {
     return (
         <div className="main__column column">
 			<div className="column__title">
-				<p>Без статуса</p>
+				<p>{title}</p>
 			</div>
-			<div className="cards">
-				<Card />
-				<Card />
-				<Card />
-    		</div>
+			{allCards.map((card) => (
+       			<Card
+       				title={card.title}
+       				theme={card.theme}
+       				date={card.date}
+      				style={card.style}
+       				key={card.id}
+       			/>
+      		))}
 		</div>
-    )
+    );
 }
 
-export default MainColumn
+export default MainColumn;
