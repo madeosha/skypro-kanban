@@ -1,3 +1,5 @@
+import * as S from './Header.styled';
+
 import { useState } from "react";
 
 function Header({ onCardAdd }) {
@@ -7,19 +9,19 @@ function Header({ onCardAdd }) {
   	const ToggleDropdown = () => setIsOpen((prevState) => !prevState); 
 
     return (
-        <header className="header">
-			<div className="container">
-				<div className="header__block">
+        <S.Header>
+			<S.Container>
+				<S.HeaderBlock>
 					<div className="header__logo _show _light">
 						<a href="" target="_self"><img src="/logo.png" alt="logo" /></a>
 					</div>
 					<div className="header__logo _dark">
 						<a href="" target="_self"><img src="/logo_dark.png" alt="logo" /></a>
 					</div>
-					<nav className="header__nav">
-						<button className="header__btn-main-new _hover01" id="btnMainNew" onClick={onCardAdd}>
+					<S.HeaderNav>
+						<S.HeaderBtnMainNew id="btnMainNew" onClick={onCardAdd}>
 							Создать новую задачу
-						</button>
+						</S.HeaderBtnMainNew>
 						<a onClick={ToggleDropdown} className="header__user _hover02">
             				Ivan Ivanov
           				</a>
@@ -34,10 +36,10 @@ function Header({ onCardAdd }) {
 								<button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
 							</div>
 						)}
-					</nav>					
-				</div>
-			</div>			
-		</header>
+					</S.HeaderNav>					
+				</S.HeaderBlock>
+			</S.Container>			
+		</S.Header>
     );
 }
 
