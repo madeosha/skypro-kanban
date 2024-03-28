@@ -22,19 +22,20 @@ function Header({ onCardAdd }) {
 						<S.HeaderBtnMainNew id="btnMainNew" onClick={onCardAdd}>
 							Создать новую задачу
 						</S.HeaderBtnMainNew>
-						<a onClick={ToggleDropdown} className="header__user _hover02">
+						<S.HeaderUser onClick={ToggleDropdown}>
             				Ivan Ivanov
-          				</a>
+          				</S.HeaderUser>
 						{isOpen && (
-							<div className="header__pop-user-set pop-user-set" id="user-set-target">
-								<p className="pop-user-set__name">Ivan Ivanov</p>
-								<p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-								<div className="pop-user-set__theme">
+							<S.HeaderPopUserSet id="user-set-target">
+								<S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
+								<S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
+								<S.PopUserSetTheme>
 									<p>Темная тема</p>
-									<input type="checkbox" className="checkbox" name="checkbox" />
-								</div>
-								<button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
-							</div>
+									<S.PopUserSetThemeInput type="checkbox" name="checkbox" />
+								</S.PopUserSetTheme>
+								<S.PopUserSetButton type="button">
+									<S.PopUserSetButtonLink href="#popExit">Выйти</S.PopUserSetButtonLink></S.PopUserSetButton>
+							</S.HeaderPopUserSet>
 						)}
 					</S.HeaderNav>					
 				</S.HeaderBlock>
