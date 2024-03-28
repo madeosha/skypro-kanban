@@ -1,5 +1,7 @@
 import MainColumn from "../MainColumn/MainColumn";
 
+import * as S from './Main.styled'
+
 //Колонки
 const statusList = [
 	"Без статуса",
@@ -11,10 +13,10 @@ const statusList = [
 
 function MainContent({ cards }) {
     return (
-        <main className="main">
-			<div className="container">
-				<div className="main__block">
-					<div className="main__content">
+        <S.Main>
+			<S.MainContainer>
+				<S.MainBlock>
+					<S.MainContent>
 					{statusList.map((status) => {
             			return (
               				<MainColumn
@@ -24,10 +26,10 @@ function MainContent({ cards }) {
               				/>
             			);
           			})}					
-					</div>
-				</div>
-			</div>
-		</main>
+					</S.MainContent>
+				</S.MainBlock>
+			</S.MainContainer>
+		</S.Main>
     );
 }
 
