@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
+export const HeaderStyled = styled.header`
   width: 100%;
   margin: 0 auto;
   background-color: #ffffff;
 `;
 
-export const Container = styled.div`
+export const ContainerStyled = styled.div`
   max-width: 1260px;
   width: 100%;
   margin: 0 auto;

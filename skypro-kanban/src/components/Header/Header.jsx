@@ -1,6 +1,6 @@
-import * as S from './Header.styled';
-
 import { useState } from "react";
+
+import { ContainerStyled, HeaderBlock, HeaderBtnMainNew, HeaderNav, HeaderPopUserSet, HeaderStyled, HeaderUser, PopUserSetButton, PopUserSetButtonLink, PopUserSetMail, PopUserSetName, PopUserSetTheme, PopUserSetThemeInput } from "./Header.styled";
 
 function Header({ onCardAdd }) {
 	//Создание переменной состояния
@@ -9,38 +9,38 @@ function Header({ onCardAdd }) {
   	const ToggleDropdown = () => setIsOpen((prevState) => !prevState); 
 
     return (
-        <S.Header>
-			<S.Container>
-				<S.HeaderBlock>
+        <HeaderStyled>
+			<ContainerStyled>
+				<HeaderBlock>
 					<div className="header__logo _show _light">
 						<a href="" target="_self"><img src="/logo.png" alt="logo" /></a>
 					</div>
 					<div className="header__logo _dark">
 						<a href="" target="_self"><img src="/logo_dark.png" alt="logo" /></a>
 					</div>
-					<S.HeaderNav>
-						<S.HeaderBtnMainNew id="btnMainNew" onClick={onCardAdd}>
+					<HeaderNav>
+						<HeaderBtnMainNew id="btnMainNew" onClick={onCardAdd}>
 							Создать новую задачу
-						</S.HeaderBtnMainNew>
-						<S.HeaderUser onClick={ToggleDropdown}>
+						</HeaderBtnMainNew>
+						<HeaderUser onClick={ToggleDropdown}>
             				Ivan Ivanov
-          				</S.HeaderUser>
+          				</HeaderUser>
 						{isOpen && (
-							<S.HeaderPopUserSet id="user-set-target">
-								<S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
-								<S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
-								<S.PopUserSetTheme>
+							<HeaderPopUserSet id="user-set-target">
+								<PopUserSetName>Ivan Ivanov</PopUserSetName>
+								<PopUserSetMail>ivan.ivanov@gmail.com</PopUserSetMail>
+								<PopUserSetTheme>
 									<p>Темная тема</p>
-									<S.PopUserSetThemeInput type="checkbox" name="checkbox" />
-								</S.PopUserSetTheme>
-								<S.PopUserSetButton type="button">
-									<S.PopUserSetButtonLink href="#popExit">Выйти</S.PopUserSetButtonLink></S.PopUserSetButton>
-							</S.HeaderPopUserSet>
+									<PopUserSetThemeInput type="checkbox" name="checkbox" />
+								</PopUserSetTheme>
+								<PopUserSetButton type="button">
+									<PopUserSetButtonLink href="#popExit">Выйти</PopUserSetButtonLink></PopUserSetButton>
+							</HeaderPopUserSet>
 						)}
-					</S.HeaderNav>					
-				</S.HeaderBlock>
-			</S.Container>			
-		</S.Header>
+					</HeaderNav>					
+				</HeaderBlock>
+			</ContainerStyled>			
+		</HeaderStyled>
     );
 }
 

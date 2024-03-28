@@ -1,6 +1,5 @@
 import MainColumn from "../MainColumn/MainColumn";
-
-import * as S from './MainContent.styled'
+import { MainBlock, MainContainerStyled, MainContentStyled, MainStyled } from "./MainContent.styled";
 
 //Колонки
 const statusList = [
@@ -13,10 +12,10 @@ const statusList = [
 
 function MainContent({ cards }) {
     return (
-        <S.Main>
-			<S.MainContainer>
-				<S.MainBlock>
-					<S.MainContent>
+        <MainStyled>
+			<MainContainerStyled>
+				<MainBlock>
+					<MainContentStyled>
 					{statusList.map((status) => {
             			return (
               				<MainColumn
@@ -26,10 +25,10 @@ function MainContent({ cards }) {
               				/>
             			);
           			})}					
-					</S.MainContent>
-				</S.MainBlock>
-			</S.MainContainer>
-		</S.Main>
+					</MainContentStyled>
+				</MainBlock>
+			</MainContainerStyled>
+		</MainStyled>
     );
 }
 

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const MainStyled = styled.main`
   width: 100%;
   background-color: #eaeef6;
 `;
 
-export const MainContainer = styled.div`
+export const MainContainerStyled = styled.div`
 max-width: 1260px;
   width: 100%;
   margin: 0 auto;
@@ -18,7 +18,7 @@ export const MainBlock = styled.div`
   padding: 25px 0 49px;
 `;
 
-export const MainContent = styled.div`
+export const MainContentStyled = styled.div`
   width: 100%;
   display: flex;
 `;
