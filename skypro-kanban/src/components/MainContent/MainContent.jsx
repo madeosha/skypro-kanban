@@ -1,6 +1,6 @@
 import MainColumn from "../MainColumn/MainColumn";
 
-import * as S from './Main.styled'
+import * as S from './MainContent.styled'
 
 //Колонки
 const statusList = [
