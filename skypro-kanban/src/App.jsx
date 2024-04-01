@@ -6,6 +6,7 @@ import PopBrowse from './components/PopBrowse/PopBrowse';
 import Header from './components/Header/Header';
 import MainContent from './components/MainContent/MainContent'
 import { allCards } from './data';
+import { GlobalStyle } from './styles/Global.styled';
 
 function App() {
   //Создание переменной состояния
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <>
+    <GlobalStyle />
       <div className="wrapper">
 		    {/*<!-- pop-up start-->*/}
 		    <PopExit />

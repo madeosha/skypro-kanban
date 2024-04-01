@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { hover01, hover02, hover03 } from "../../styles/Common.styled";
 
 export const HeaderStyled = styled.header`
   width: 100%;
@@ -45,9 +46,7 @@ export const HeaderBtnMainNew = styled.button`
   font-weight: 500;
   margin-right: 20px;
 
-  &:hover {
-    background-color: #33399b;
-  }
+  ${hover01}
 `;
 
 export const HeaderUser = styled.a`
@@ -59,10 +58,6 @@ export const HeaderUser = styled.a`
   font-size: 14px;
   line-height: 20px;
   color: #565eef;
-
-  &:hover {
-    color: #33399b;
-  }
 
   &::after {
     content: "";
@@ -81,6 +76,8 @@ export const HeaderUser = styled.a`
     border-left-color: #33399b;
     border-bottom-color: #33399b;
   }
+
+  ${hover02}
 `;
 
 export const HeaderPopUserSet = styled.div`
@@ -128,9 +125,9 @@ export const PopUserSetTheme = styled.div`
 
   p {
     color: #000;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.14px;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.14px;
   }
 `;
 
@@ -162,24 +159,19 @@ export const PopUserSetThemeInput = styled.input`
   }
 `;
 
-export const PopUserSetButton =styled.button`
+export const PopUserSetButton = styled.button`
   width: 72px;
   height: 30px;
   background: transparent;
-  color: #565EEF;
+  color: #565eef;
   border-radius: 4px;
-  border: 1px solid #565EEF;
+  border: 1px solid #565eef;
 
-  &:hover {
-  background-color: #33399b;
-  color: #FFFFFF;
-  }
+  ${hover03}
 `;
 
 export const PopUserSetButtonLink = styled.a`
-  color: #565EEF;
+  color: #565eef;
 
-  &:hover {
-    color: #FFFFFF;
-  }
+  ${hover03}
 `;
