@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { hover01 } from "../../styles/Common.styled";
+import { hover01, hover03 } from "../../styles/Common.styled";
 
 export const PopExitStyled = styled.div`
   display: none;
@@ -74,5 +74,42 @@ export const PopExitExitYes = styled.button`
   color: #ffffff;
   margin-right: 10px;
 
- ${hover01}
+  & a {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ${hover01}
+`;
+
+export const PopExitExitNo = styled.button`
+  width: 153px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 0.7px solid var(--palette-navy-60, #565eef);
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  color: #ffffff;
+
+  & a {
+    width: 100%;
+    height: 100%;
+    color: #565eef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ${hover03}
 `;
