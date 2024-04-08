@@ -1,44 +1,66 @@
 import { useState } from "react";
 
-function Header({ onCardAdd }) {
-	//Создание переменной состояния
-	const [isOpen, setIsOpen] = useState(false); 
-	//Функция, переключающая состояние (выпадение модального окна)
-  	const ToggleDropdown = () => setIsOpen((prevState) => !prevState); 
+import {
+  ContainerStyled,
+  HeaderBlock,
+  HeaderBtnMainNew,
+  HeaderNav,
+  HeaderPopUserSet,
+  HeaderStyled,
+  HeaderUser,
+  PopUserSetButton,
+  PopUserSetButtonLink,
+  PopUserSetMail,
+  PopUserSetName,
+  PopUserSetTheme,
+  PopUserSetThemeInput,
+} from "./Header.styled";
 
-    return (
-        <header className="header">
-			<div className="container">
-				<div className="header__block">
-					<div className="header__logo _show _light">
-						<a href="" target="_self"><img src="/logo.png" alt="logo" /></a>
-					</div>
-					<div className="header__logo _dark">
-						<a href="" target="_self"><img src="/logo_dark.png" alt="logo" /></a>
-					</div>
-					<nav className="header__nav">
-						<button className="header__btn-main-new _hover01" id="btnMainNew" onClick={onCardAdd}>
-							Создать новую задачу
-						</button>
-						<a onClick={ToggleDropdown} className="header__user _hover02">
-            				Ivan Ivanov
-          				</a>
-						{isOpen && (
-							<div className="header__pop-user-set pop-user-set" id="user-set-target">
-								<p className="pop-user-set__name">Ivan Ivanov</p>
-								<p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-								<div className="pop-user-set__theme">
-									<p>Темная тема</p>
-									<input type="checkbox" className="checkbox" name="checkbox" />
-								</div>
-								<button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
-							</div>
-						)}
-					</nav>					
-				</div>
-			</div>			
-		</header>
-    );
+function Header({ onCardAdd }) {
+  //Создание переменной состояния
+  const [isOpen, setIsOpen] = useState(false);
+  //Функция, переключающая состояние (выпадение модального окна)
+  const ToggleDropdown = () => setIsOpen((prevState) => !prevState);
+
+  return (
+    <HeaderStyled>
+      <ContainerStyled>
+        <HeaderBlock>
+          <div className="header__logo _show _light">
+            <a href="" target="_self">
+              <img src="/logo.png" alt="logo" />
+            </a>
+          </div>
+          <div className="header__logo _dark">
+            <a href="" target="_self">
+              <img src="/logo_dark.png" alt="logo" />
+            </a>
+          </div>
+          <HeaderNav>
+            <HeaderBtnMainNew id="btnMainNew" onClick={onCardAdd}>
+              Создать новую задачу
+            </HeaderBtnMainNew>
+            <HeaderUser onClick={ToggleDropdown}>Ivan Ivanov</HeaderUser>
+            {isOpen && (
+              <HeaderPopUserSet id="user-set-target">
+                <PopUserSetName>Ivan Ivanov</PopUserSetName>
+                <PopUserSetMail>ivan.ivanov@gmail.com</PopUserSetMail>
+                <PopUserSetTheme>
+                  <p>Темная тема</p>
+                  <PopUserSetThemeInput type="checkbox" name="checkbox" />
+                </PopUserSetTheme>
+                <PopUserSetButton type="button">
+                  <PopUserSetButtonLink href="#popExit">
+                    Выйти
+                  </PopUserSetButtonLink>
+                </PopUserSetButton>
+              </HeaderPopUserSet>
+            )}
+          </HeaderNav>
+        </HeaderBlock>
+      </ContainerStyled>
+    </HeaderStyled>
+  );
 }
 
 export default Header;

@@ -6,6 +6,8 @@ import PopBrowse from './components/PopBrowse/PopBrowse';
 import Header from './components/Header/Header';
 import MainContent from './components/MainContent/MainContent'
 import { allCards } from './data';
+import { GlobalStyle } from './styles/Global.styled';
+import { Loading, Wrapper } from './styles/Common.styled';
 
 function App() {
   //Создание переменной состояния
@@ -32,7 +34,8 @@ function App() {
 
   return (
     <>
-      <div className="wrapper">
+    <GlobalStyle />
+      <Wrapper>
 		    {/*<!-- pop-up start-->*/}
 		    <PopExit />
 		    <PopNewCard />
@@ -40,11 +43,11 @@ function App() {
 		    {/*<!-- pop-up end-->*/}
 		    <Header onCardAdd={onCardAdd} />
         {isLoading ? (
-          <p className="loading"> Загрузка...</p>
+          <Loading> Загрузка...</Loading>
         ) : (
           <MainContent cards={cards} />
         )}
-      </div>
+      </Wrapper>
 
     <script src="js/script.js"></script>
     </>
