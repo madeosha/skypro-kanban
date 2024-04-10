@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.css';
 import PopExit from './components/PopExit/PopExit';
@@ -8,6 +9,14 @@ import MainContent from './components/MainContent/MainContent'
 import { allCards } from './data';
 import { GlobalStyle } from './styles/Global.styled';
 import { Loading, Wrapper } from './styles/Common.styled';
+
+const AppRoutes = {
+  MAIN:"/",
+  EXIT:"/exit",
+  LOGIN:"/login",
+  REGISTER:"/register",
+  CARD:"/card/:id",
+};
 
 function App() {
   //Создание переменной состояния
@@ -35,12 +44,17 @@ function App() {
   return (
     <>
     <GlobalStyle />
+    <Routes>
+      <Route path={AppRoutes.MAIN} element={<MainPage />} />
+      <Route path={AppRoutes.EXIT} element={<ExitPage />} />
+      <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
+      <Route path={AppRoutes.REGISTER} element={<RegisterPage />} />
+      <Route path={AppRoutes.CARD} element={<CardPage />} />
+    </Routes>
       <Wrapper>
-		    {/*<!-- pop-up start-->*/}
 		    <PopExit />
 		    <PopNewCard />
 		    <PopBrowse />
-		    {/*<!-- pop-up end-->*/}
 		    <Header onCardAdd={onCardAdd} />
         {isLoading ? (
           <Loading> Загрузка...</Loading>
