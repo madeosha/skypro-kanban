@@ -3,7 +3,7 @@ import Card from '../components/Card/Card';
 
 const CardPage = () => {
   return (
-    <Card />
+    <Card/>
   )
 }
 

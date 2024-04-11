@@ -7,6 +7,7 @@ import {
   PopExitStyled,
   PopExitTtl,
 } from "./PopExitStyled";
+import { routeObj } from "../../lib/const";
 
 function PopExit() {
   return (
@@ -19,10 +20,10 @@ function PopExit() {
           <form className="pop-exit__form" id="formExit" action="#">
             <PopExitFormGroup>
               <PopExitExitYes id="exitYes">
-                <a href="modal/signin.html">Да, выйти</a>{" "}
+              <Link to={routeObj.LOGIN}>Да, выйти</Link>
               </PopExitExitYes>
               <PopExitExitNo id="exitNo">
-                <a href="main.html">Нет, остаться</a>{" "}
+              <Link to={routeObj.MAIN}>Нет, остаться </Link>
               </PopExitExitNo>
             </PopExitFormGroup>
           </form>
