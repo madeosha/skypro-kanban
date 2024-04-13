@@ -10,8 +10,7 @@ const MainPage = () => {
     <MainContent />
     <Outlet />
     </>
-    
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;

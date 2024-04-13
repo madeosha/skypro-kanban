@@ -8,6 +8,7 @@ import {
   PopExitTtl,
 } from "./PopExitStyled";
 import { routeObj } from "../../lib/const";
+import { Link } from "react-router-dom";
 
 function PopExit() {
   return (

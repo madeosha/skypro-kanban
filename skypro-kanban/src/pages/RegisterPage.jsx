@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Registration from "../components/Auth/Registration";
 
 const RegisterPage = () => {
   return (
-    <div>
-      <h2>ТУТ БУДЕТ РЕГИСТРАЦИЯ</h2>
-    </div>
+    <Registration />
   )
 }
 

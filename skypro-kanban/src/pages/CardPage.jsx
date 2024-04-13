@@ -1,9 +1,9 @@
 import React from 'react'
-import Card from '../components/Card/Card';
+import PopBrowse from '../components/PopBrowse/PopBrowse';
 
 const CardPage = () => {
   return (
-    <Card/>
+    <PopBrowse />
   )
 }
 
