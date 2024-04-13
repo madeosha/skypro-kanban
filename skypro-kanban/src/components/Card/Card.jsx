@@ -18,12 +18,13 @@ function Card({ theme, title, date, id, style }) {
           <CardTheme $theme={style}>
             <p>{theme}</p>
           </CardTheme>
-          <Link to={`/card/${id}`}></Link>
+          <Link to={`/card/${id}`}>
           <CardBtn>
             <div></div>
             <div></div>
             <div></div>
           </CardBtn>
+          </Link>
         </CardGroup>
         <CardContent>
           <a href="" target="_blank">

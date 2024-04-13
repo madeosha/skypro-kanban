@@ -154,7 +154,7 @@ export const PopUserSetThemeInput = styled.input`
     transition: 0.5s;
   }
 
-  &:checked::before {
+  &:checked[type="checkbox"]::before {
     left: 12px;
   }
 `;
@@ -168,10 +168,13 @@ export const PopUserSetButton = styled.button`
   border: 1px solid #565eef;
 
   ${hover03}
+  &:hover a {
+    color: #ffffff;
+  }
 `;
 
 export const PopUserSetButtonLink = styled.a`
-  color: #565eef;
+ color: #565eef;
 
-  ${hover03}
+${hover01}
 `;

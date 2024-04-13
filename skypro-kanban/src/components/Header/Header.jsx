@@ -33,9 +33,9 @@ function Header({ onCardAdd }) {
             </Link>
           </div>
           <div className="header__logo _dark">
-            <a href="" target="_self">
+            <Link to="/">
               <img src="/logo_dark.png" alt="logo" />
-            </a>
+            </Link>
           </div>
           <HeaderNav>
             <HeaderBtnMainNew id="btnMainNew" onClick={onCardAdd}>
@@ -52,7 +52,7 @@ function Header({ onCardAdd }) {
                 </PopUserSetTheme>
                 <PopUserSetButton type="button">
                   <PopUserSetButtonLink>
-                  <Link to={routeObj.EXIT}>Выйти</Link>
+                    <Link to={routeObj.EXIT}>Выйти</Link>
                   </PopUserSetButtonLink>
                 </PopUserSetButton>
               </HeaderPopUserSet>

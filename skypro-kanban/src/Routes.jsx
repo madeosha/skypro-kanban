@@ -10,7 +10,7 @@ import CardPage from "./pages/CardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const AppRoutes = () => {
-  const [isAuth, setIsAuth] = useState(true)
+  const [isAuth, setIsAuth] = useState(false)
 
   return (
     <>
@@ -24,7 +24,7 @@ const AppRoutes = () => {
 
         <Route path={routeObj.LOGIN} element={<LoginPage setIsAuth={setIsAuth}/>} />
         <Route path={routeObj.REGISTER} element={<RegisterPage />} />
-        <Route path={routeObj.ERROR} element={<NotFoundPage />} />
+        <Route path={routeObj.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
     </>
   );

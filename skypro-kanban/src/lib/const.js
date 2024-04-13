@@ -4,5 +4,5 @@ export const routeObj = {
     LOGIN:"/login",
     REGISTER:"/register",
     CARD:"/card/:id",
-    ERROR:"*",
+    NOT_FOUND:"*",
   };

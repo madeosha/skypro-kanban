@@ -1,5 +1,4 @@
 import Card from "../Card/Card";
-
 import {
   ColumnTitle,
   ColumnTitleText,
