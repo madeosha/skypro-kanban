@@ -51,8 +51,9 @@ function Header({ onCardAdd }) {
                   <PopUserSetThemeInput type="checkbox" name="checkbox" />
                 </PopUserSetTheme>
                 <PopUserSetButton type="button">
+                <Link to={routeObj.EXIT}>Выйти</Link>
                   <PopUserSetButtonLink>
-                    <Link to={routeObj.EXIT}>Выйти</Link>
+                    
                   </PopUserSetButtonLink>
                 </PopUserSetButton>
               </HeaderPopUserSet>
