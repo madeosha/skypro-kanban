@@ -5,7 +5,7 @@ export const ContainerSignin = styled.div`
   display: block;
   width: 100vw;
   min-height: 100vh;
-  margin: 0 auto;
+  margin: 0 auto;  
 `;
 
 export const Modal = styled.div`
@@ -16,7 +16,7 @@ export const Modal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center;  
 `;
 
 export const ModalBlock = styled.div`

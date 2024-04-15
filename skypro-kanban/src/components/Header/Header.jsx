@@ -28,12 +28,12 @@ function Header({ onCardAdd }) {
       <ContainerStyled>
         <HeaderBlock>
           <div className="header__logo _show _light">
-            <Link to="/">
+            <Link to={routeObj.MAIN}>
               <img src="/logo.png" alt="logo" />
             </Link>
           </div>
           <div className="header__logo _dark">
-            <Link to="/">
+            <Link to={routeObj.MAIN}>
               <img src="/logo_dark.png" alt="logo" />
             </Link>
           </div>
