@@ -1,5 +1,5 @@
 import React from 'react'
-import PopBrowse from '../components/PopBrowse/PopBrowse';
+import PopBrowse from '../../components/PopBrowse/PopBrowse';
 
 const CardPage = () => {
   return (
