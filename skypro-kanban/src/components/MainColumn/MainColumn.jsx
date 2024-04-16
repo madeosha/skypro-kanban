@@ -1,5 +1,4 @@
 import Card from "../Card/Card";
-
 import {
   ColumnTitle,
   ColumnTitleText,
@@ -18,6 +17,7 @@ function MainColumn({ title, allCards }) {
           theme={card.theme}
           date={card.date}
           style={card.style}
+          id={card.id}
           key={card.id}
         />
       ))}

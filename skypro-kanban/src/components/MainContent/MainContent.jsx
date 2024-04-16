@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import MainColumn from "../MainColumn/MainColumn";
 import {
   MainBlock,
@@ -5,6 +6,9 @@ import {
   MainContentStyled,
   MainStyled,
 } from "./MainContent.styled";
+import Header from "../Header/Header";
+import { allCards } from "../../data"
+import { Loading, Wrapper } from "../../styles/Common.styled";
 
 //Колонки
 const statusList = [
@@ -15,25 +19,56 @@ const statusList = [
   "Готово",
 ];
 
-function MainContent({ cards }) {
+function MainContent() {
+  //Создание переменной состояния
+  const [cards, setCards] = useState(allCards);
+  //Функция добавления новой задачи
+  const onCardAdd = () => {
+    const newCard = {
+      id: cards.length + 1,
+      theme: "Новая задача",
+      title: "Новая задача",
+      date: "30.10.23",
+      status: "Без статуса",
+      style: "card__theme _orange",
+    };
+    setCards([...cards, newCard]);
+  };
+  //Эмуляция загрузки карточки
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
   return (
+    <Wrapper>
     <MainStyled>
+      <Header onCardAdd={onCardAdd} />
       <MainContainerStyled>
         <MainBlock>
           <MainContentStyled>
-            {statusList.map((status) => {
-              return (
-                <MainColumn
-                  key={status}
-                  title={status}
-                  allCards={cards.filter((card) => card.status === status)}
-                />
-              );
-            })}
+          {isLoading ? (
+              <Loading> Загрузка...</Loading>
+            ) : (
+              <>
+                {statusList.map((status) => {
+                  return (
+                    <MainColumn
+                      key={status}
+                      title={status}
+                      allCards={cards.filter((card) => card.status === status)}
+                    />
+                  );
+                })}
+              </>
+            )}
           </MainContentStyled>
         </MainBlock>
       </MainContainerStyled>
     </MainStyled>
+    </Wrapper>
   );
 }
 

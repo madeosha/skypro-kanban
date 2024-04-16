@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import {
   ContainerStyled,
   HeaderBlock,
@@ -15,6 +14,8 @@ import {
   PopUserSetTheme,
   PopUserSetThemeInput,
 } from "./Header.styled";
+import { Link } from "react-router-dom";
+import { routeObj } from "../../lib/const";
 
 function Header({ onCardAdd }) {
   //Создание переменной состояния
@@ -27,14 +28,14 @@ function Header({ onCardAdd }) {
       <ContainerStyled>
         <HeaderBlock>
           <div className="header__logo _show _light">
-            <a href="" target="_self">
+            <Link to={routeObj.MAIN}>
               <img src="/logo.png" alt="logo" />
-            </a>
+            </Link>
           </div>
           <div className="header__logo _dark">
-            <a href="" target="_self">
+            <Link to={routeObj.MAIN}>
               <img src="/logo_dark.png" alt="logo" />
-            </a>
+            </Link>
           </div>
           <HeaderNav>
             <HeaderBtnMainNew id="btnMainNew" onClick={onCardAdd}>
@@ -50,8 +51,9 @@ function Header({ onCardAdd }) {
                   <PopUserSetThemeInput type="checkbox" name="checkbox" />
                 </PopUserSetTheme>
                 <PopUserSetButton type="button">
-                  <PopUserSetButtonLink href="#popExit">
-                    Выйти
+                <Link to={routeObj.EXIT}>Выйти</Link>
+                  <PopUserSetButtonLink>
+                    
                   </PopUserSetButtonLink>
                 </PopUserSetButton>
               </HeaderPopUserSet>

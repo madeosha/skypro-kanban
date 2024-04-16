@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { hover01, hover03 } from "../../styles/Common.styled";
 
 export const PopExitStyled = styled.div`
-  display: none;
+  display: block;
   width: 100%;
   height: 100%;
   min-width: 320px;
@@ -12,9 +12,9 @@ export const PopExitStyled = styled.div`
   left: 0;
   z-index: 5;
 
-  &:target {
-    display: block;
-  }
+ // &:target {
+  //  display: block;
+ // }
 `;
 
 export const PopExitContainer = styled.div`
@@ -100,7 +100,13 @@ export const PopExitExitNo = styled.button`
   line-height: 21px;
   font-weight: 500;
   letter-spacing: -0.14px;
-  color: #ffffff;
+  color: #565EEF;
+
+  ${hover03};
+
+  &:hover a {
+  color: #FFFFFF;
+  }
 
   & a {
     width: 100%;
@@ -110,6 +116,4 @@ export const PopExitExitNo = styled.button`
     align-items: center;
     justify-content: center;
   }
-
-  ${hover03}
 `;
