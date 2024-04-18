@@ -7,9 +7,9 @@ import {
   MainStyled,
 } from "./MainContent.styled";
 import Header from "../Header/Header";
-import { allCards } from "../../data"
+import { allCards } from "../../data";
 import { Loading, Wrapper } from "../../styles/Common.styled";
-import { getToDos } from "../../api.js"
+import { getToDos } from "../../api.js";
 
 //Колонки
 const statusList = [
@@ -39,38 +39,48 @@ function MainContent() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
-    getToDos().then((data) => {
-      setCards(data.tasks);
-      setIsLoading(false);
-    }).catch
+    getToDos()
+      .then((data) => {
+        setCards(data.tasks);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   }, []);
 
   return (
     <Wrapper>
-    <MainStyled>
-      <Header onCardAdd={onCardAdd} />
-      <MainContainerStyled>
-        <MainBlock>
-          <MainContentStyled>
-          {isLoading ? (
-              <Loading> Загрузка...</Loading>
-            ) : (
-              <>
-                {statusList.map((status) => {
-                  return (
-                    <MainColumn
-                      key={status}
-                      title={status}
-                      allCards={cards.filter((card) => card.status === status)}
-                    />
-                  );
-                })}
-              </>
-            )}
-          </MainContentStyled>
-        </MainBlock>
-      </MainContainerStyled>
-    </MainStyled>
+      <MainStyled>
+        <Header onCardAdd={onCardAdd} />
+        <MainContainerStyled>
+          <MainBlock>
+            <MainContentStyled>
+              {error ? (
+                <p style={{ color: "red" }}>
+                  Произошла ошибка, попробуйте позже!
+                </p>
+              ) : isLoading ? (
+                <Loading> Загрузка...</Loading>
+              ) : (
+                <>
+                  {statusList.map((status) => {
+                    return (
+                      <MainColumn
+                        key={status}
+                        title={status}
+                        allCards={cards.filter(
+                          (card) => card.status === status
+                        )}
+                      />
+                    );
+                  })}
+                </>
+              )}
+            </MainContentStyled>
+          </MainBlock>
+        </MainContainerStyled>
+      </MainStyled>
     </Wrapper>
   );
 }
