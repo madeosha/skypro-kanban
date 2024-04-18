@@ -17,8 +17,8 @@ function MainColumn({ title, allCards }) {
           theme={card.theme}
           date={card.date}
           style={card.style}
-          id={card.id}
-          key={card.id}
+          id={card._id}
+          key={card._id}
         />
       ))}
     </MainColumnStyled>

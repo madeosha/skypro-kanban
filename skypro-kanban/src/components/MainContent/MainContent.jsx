@@ -9,6 +9,7 @@ import {
 import Header from "../Header/Header";
 import { allCards } from "../../data"
 import { Loading, Wrapper } from "../../styles/Common.styled";
+import { getToDos } from "../../api.js"
 
 //Колонки
 const statusList = [
@@ -36,10 +37,12 @@ function MainContent() {
   };
   //Эмуляция загрузки карточки
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    setTimeout(() => {
+    getToDos().then((data) => {
+      setCards(data.tasks);
       setIsLoading(false);
-    }, 2000);
+    }).catch
   }, []);
 
   return (

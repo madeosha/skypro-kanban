@@ -10,7 +10,7 @@ import {
   CardsItem,
 } from "./Card.styled";
 
-function Card({ theme, title, date, id, style }) {
+function Card({ theme, title, date, _id, style }) {
   return (
     <CardsItem>
       <CardsCard>
@@ -18,7 +18,7 @@ function Card({ theme, title, date, id, style }) {
           <CardTheme $theme={style}>
             <p>{theme}</p>
           </CardTheme>
-          <Link to={`/card/${id}`}>
+          <Link to={`/card/${_id}`}>
           <CardBtn>
             <div></div>
             <div></div>
