@@ -1,8 +1,8 @@
 import React from "react";
 import PopExit from "../../components/PopExit/PopExit";
 
-const ExitPage = ({ setIsAuth }) => {
-  return <PopExit setIsAuth={setIsAuth} />;
+const ExitPage = ({logout}) => {
+  return <PopExit logout={logout} />;
 };
 
 export default ExitPage;

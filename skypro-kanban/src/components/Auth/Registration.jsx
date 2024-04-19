@@ -2,8 +2,26 @@ import { Link } from "react-router-dom";
 import { routeObj } from "../../lib/const";
 import { Wrapper } from "../../styles/Common.styled";
 import * as S from "../Auth/Login.styled";
+import { authToDos } from "../../api";
+import { useState } from "react";
 
-function Registration() {
+function Registration({userLogin}) {
+  const [name, setName] = useState("");
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  const handleAuthTodoClick = async () => {
+    try {
+    await authToDos(name, login, password).then((responseData) => {
+      userLogin(responseData.user);
+    })} catch(err) {setError(err.message)}
+  };
+
   return (
     <Wrapper>
       <S.ContainerSignin>
@@ -14,30 +32,32 @@ function Registration() {
             </S.ModalTtl>
             <S.ModalFormLogin>
               <S.ModalInput
+                onSubmit={handleSubmit}
                 type="text"
-                name="first-name"
-                id="first-name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Имя"
               />
               <S.ModalInput
                 type="text"
-                name="login"
-                id="loginReg"
-                placeholder="Эл. почта"
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
+                placeholder="Логин"
               />
               <S.ModalInput
                 type="password"
-                name="password"
-                id="passwordFirst"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Пароль"
               />
-              <S.ModalBtnEnter>
-                <Link to={routeObj.MAIN}>Зарегистрироваться</Link>{" "}
+              <S.ModalBtnEnter onClick={handleAuthTodoClick}>
+                <Link>Зарегистрироваться</Link>{" "}
               </S.ModalBtnEnter>
               <S.ModalFormGroup>
+              {error && (<p style={{color: "red"}}>Пользователь с таким логином уже существует</p> ) }
                 <p>
                   Уже есть аккаунт?{" "}
-                  <Link to={routeObj.LOGIN}>Войдите здесь</Link>
+                  <Link to={routeObj.LOGIN} error="error">Войдите здесь</Link>
                 </p>
               </S.ModalFormGroup>
             </S.ModalFormLogin>

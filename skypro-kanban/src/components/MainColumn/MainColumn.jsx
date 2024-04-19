@@ -16,7 +16,6 @@ function MainColumn({ title, allCards }) {
           title={card.title}
           theme={card.topic}
           date={card.date}
-          style={card.style}
           id={card._id}
           key={card._id}
         />
