@@ -7,7 +7,7 @@ import {
   MainStyled,
 } from "./MainContent.styled";
 import Header from "../Header/Header";
-import { allCards } from "../../data";
+
 import { Loading, Wrapper } from "../../styles/Common.styled";
 import { getToDos } from "../../api.js";
 
@@ -22,7 +22,7 @@ const statusList = [
 
 function MainContent() {
   //Создание переменной состояния
-  const [cards, setCards] = useState(allCards);
+  const [cards, setCards] = useState([]);
   //Функция добавления новой задачи
   const onCardAdd = () => {
     const newCard = {
@@ -41,12 +41,15 @@ function MainContent() {
   useEffect(() => {
     getToDos()
       .then((data) => {
-        setCards(data.tasks);
+        setCards(data.tasks)
         setIsLoading(false);
       })
       .catch((err) => {
         setError(err.message);
-      });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
   }, []);
 
   return (
