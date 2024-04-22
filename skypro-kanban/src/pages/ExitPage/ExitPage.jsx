@@ -1,8 +1,8 @@
-import React from "react";
+//import React from "react";
 import PopExit from "../../components/PopExit/PopExit";
 
-const ExitPage = ({logout}) => {
-  return <PopExit logout={logout} />;
+const ExitPage = () => {
+  return <PopExit />;
 };
 
 export default ExitPage;

@@ -9,8 +9,10 @@ import {
 } from "./PopExitStyled";
 import { routeObj } from "../../lib/const";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../../contexts/hooks/useUser";
 
-function PopExit({logout}) {
+function PopExit() {
+  const { logout } = useUserContext();
   return (
     <PopExitStyled id="popExit">
       <PopExitContainer>
@@ -21,10 +23,10 @@ function PopExit({logout}) {
           <form className="pop-exit__form" id="formExit" action="#">
             <PopExitFormGroup>
               <PopExitExitYes onClick={logout}>
-              <Link to={routeObj.LOGIN}>Да, выйти</Link>
+                <Link to={routeObj.LOGIN}>Да, выйти</Link>
               </PopExitExitYes>
               <PopExitExitNo id="exitNo">
-              <Link to={routeObj.MAIN}>Нет, остаться </Link>
+                <Link to={routeObj.MAIN}>Нет, остаться </Link>
               </PopExitExitNo>
             </PopExitFormGroup>
           </form>

@@ -33,8 +33,8 @@ function Header({ onCardAdd, user }) {
             </Link>
           </div>
           <HeaderNav>
-            <HeaderBtnMainNew id="btnMainNew" onClick={onCardAdd}>
-              Создать новую задачу
+            <HeaderBtnMainNew onClick={onCardAdd}>
+              <Link to={routeObj.NEW_CARD}>Создать новую задачу</Link>
             </HeaderBtnMainNew>
             <HeaderUser onClick={ToggleDropdown}>{user}</HeaderUser>
             {isOpen && (

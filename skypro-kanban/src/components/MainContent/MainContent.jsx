@@ -9,6 +9,7 @@ import {
 import Header from "../Header/Header";
 import { Loading, Wrapper } from "../../styles/Common.styled";
 import { getToDos } from "../../api.js";
+import { useUserContext } from "../../contexts/hooks/useUser"
 
 //Колонки
 const statusList = [
@@ -19,7 +20,8 @@ const statusList = [
   "Готово",
 ];
 
-function MainContent({user}) {
+function MainContent() {
+  const { user } = useUserContext();
   //Создание переменной состояния
   const [cards, setCards] = useState([]);
   //Функция добавления новой задачи
@@ -39,9 +41,9 @@ function MainContent({user}) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getToDos({token: user.token})
+    getToDos({ token: user.token })
       .then((cards) => {
-        setCards(cards.tasks)
+        setCards(cards.tasks);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -49,7 +51,7 @@ function MainContent({user}) {
       })
       .finally(() => {
         setIsLoading(false);
-      })
+      });
   }, [user]);
 
   return (

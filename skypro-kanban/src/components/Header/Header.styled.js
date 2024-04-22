@@ -47,6 +47,10 @@ export const HeaderBtnMainNew = styled.button`
   margin-right: 20px;
 
   ${hover01}
+
+  & a {
+  color: #FFFFFF;
+  }
 `;
 
 export const HeaderUser = styled.a`
