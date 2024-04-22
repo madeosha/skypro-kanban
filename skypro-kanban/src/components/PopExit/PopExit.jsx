@@ -10,7 +10,7 @@ import {
 import { routeObj } from "../../lib/const";
 import { Link } from "react-router-dom";
 
-function PopExit() {
+function PopExit({logout}) {
   return (
     <PopExitStyled id="popExit">
       <PopExitContainer>
@@ -20,7 +20,7 @@ function PopExit() {
           </PopExitTtl>
           <form className="pop-exit__form" id="formExit" action="#">
             <PopExitFormGroup>
-              <PopExitExitYes id="exitYes">
+              <PopExitExitYes onClick={logout}>
               <Link to={routeObj.LOGIN}>Да, выйти</Link>
               </PopExitExitYes>
               <PopExitExitNo id="exitNo">

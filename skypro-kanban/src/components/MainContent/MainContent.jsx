@@ -7,8 +7,8 @@ import {
   MainStyled,
 } from "./MainContent.styled";
 import Header from "../Header/Header";
-import { allCards } from "../../data"
 import { Loading, Wrapper } from "../../styles/Common.styled";
+import { getToDos } from "../../api.js";
 
 //Колонки
 const statusList = [
@@ -19,55 +19,71 @@ const statusList = [
   "Готово",
 ];
 
-function MainContent() {
+function MainContent({user}) {
   //Создание переменной состояния
-  const [cards, setCards] = useState(allCards);
+  const [cards, setCards] = useState([]);
   //Функция добавления новой задачи
   const onCardAdd = () => {
     const newCard = {
-      id: cards.length + 1,
-      theme: "Новая задача",
+      _id: cards.length + 1,
+      topic: "Новая задача",
       title: "Новая задача",
       date: "30.10.23",
       status: "Без статуса",
-      style: "card__theme _orange",
     };
     setCards([...cards, newCard]);
   };
+
   //Эмуляция загрузки карточки
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
+    getToDos({token: user.token})
+      .then((cards) => {
+        setCards(cards.tasks)
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
+  }, [user]);
 
   return (
     <Wrapper>
-    <MainStyled>
-      <Header onCardAdd={onCardAdd} />
-      <MainContainerStyled>
-        <MainBlock>
-          <MainContentStyled>
-          {isLoading ? (
-              <Loading> Загрузка...</Loading>
-            ) : (
-              <>
-                {statusList.map((status) => {
-                  return (
-                    <MainColumn
-                      key={status}
-                      title={status}
-                      allCards={cards.filter((card) => card.status === status)}
-                    />
-                  );
-                })}
-              </>
-            )}
-          </MainContentStyled>
-        </MainBlock>
-      </MainContainerStyled>
-    </MainStyled>
+      <MainStyled>
+        <Header onCardAdd={onCardAdd} user={user.name} />
+        <MainContainerStyled>
+          <MainBlock>
+            <MainContentStyled>
+              {error ? (
+                <p style={{ color: "red" }}>
+                  Произошла ошибка, попробуйте позже!
+                </p>
+              ) : isLoading ? (
+                <Loading> Загрузка...</Loading>
+              ) : (
+                <>
+                  {statusList.map((status) => {
+                    return (
+                      <MainColumn
+                        key={status}
+                        title={status}
+                        allCards={cards.filter(
+                          (card) => card.status === status
+                        )}
+                      />
+                    );
+                  })}
+                </>
+              )}
+            </MainContentStyled>
+          </MainBlock>
+        </MainContainerStyled>
+      </MainStyled>
     </Wrapper>
   );
 }
