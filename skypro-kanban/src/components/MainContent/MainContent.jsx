@@ -9,7 +9,8 @@ import {
 import Header from "../Header/Header";
 import { Loading, Wrapper } from "../../styles/Common.styled";
 import { getToDos } from "../../api.js";
-import { useUserContext } from "../../contexts/hooks/useUser"
+import { useUserContext } from "../../contexts/hooks/useUser";
+import { useTaskContext } from "../../contexts/hooks/useTask";
 
 //Колонки
 const statusList = [
@@ -22,19 +23,8 @@ const statusList = [
 
 function MainContent() {
   const { user } = useUserContext();
-  //Создание переменной состояния
-  const [cards, setCards] = useState([]);
-  //Функция добавления новой задачи
-  const onCardAdd = () => {
-    const newCard = {
-      _id: cards.length + 1,
-      topic: "Новая задача",
-      title: "Новая задача",
-      date: "30.10.23",
-      status: "Без статуса",
-    };
-    setCards([...cards, newCard]);
-  };
+  const { cards } = useTaskContext();
+  const { setCards } = useTaskContext();
 
   //Эмуляция загрузки карточки
   const [isLoading, setIsLoading] = useState(true);
@@ -53,11 +43,11 @@ function MainContent() {
         setIsLoading(false);
       });
   }, [user]);
-
+  
   return (
     <Wrapper>
       <MainStyled>
-        <Header onCardAdd={onCardAdd} user={user.name} />
+        <Header user={user.name} />
         <MainContainerStyled>
           <MainBlock>
             <MainContentStyled>

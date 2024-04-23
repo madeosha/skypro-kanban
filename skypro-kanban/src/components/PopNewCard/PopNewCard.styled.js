@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { hover01 } from "../../styles/Common.styled";
+import { topicStyles } from "../../lib/topic";
+import { TopicText } from "../Card/Card.styled";
 
 export const PopNewCard = styled.div`
-  display: none;
   width: 100%;
   min-width: 375px;
   height: 100%;
@@ -169,7 +170,7 @@ export const CategoriesThemes = styled.div`
   }
 `;
 
-export const CategoriesThemeColor = styled.div`
+export const CategoriesTheme = styled.label`
   display: inline-block;
   width: auto;
   height: 30px;
@@ -181,6 +182,9 @@ export const CategoriesThemeColor = styled.div`
   font-weight: 600;
   line-height: 14px;
   white-space: nowrap;
+  color: ${({ $topicColor }) => topicStyles[$topicColor]?.color || "#06b16e"};
+  background-color: ${({ $topicColor }) =>
+    topicStyles[$topicColor]?.backgroundColor || "#b4fdd1"};
 `;
 
 export const FormNewCreate = styled.button`

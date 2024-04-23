@@ -1,4 +1,3 @@
-import React from 'react';
 import ru from "date-fns/locale/ru";
 import "react-day-picker/dist/style.css";
 import { format } from 'date-fns';
