@@ -1,9 +1,3 @@
-#root {
-  margin: 0 auto;
-  text-align: center;
-}
-
-
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -19,14 +13,6 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 @keyframes card-animation {
   0% {
     height: 0;
@@ -38,7 +24,6 @@
   }
 }
 
-.pop-new-card:target,
 .pop-browse:target {
   display: block;
 }

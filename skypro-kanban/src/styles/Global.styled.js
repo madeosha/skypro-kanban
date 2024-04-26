@@ -1,7 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    * {
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -31,4 +35,3 @@ body {
   color: #000000;
 }
 `;
-

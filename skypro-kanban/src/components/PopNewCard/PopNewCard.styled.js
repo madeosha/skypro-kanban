@@ -12,6 +12,7 @@ export const PopNewCard = styled.div`
   top: 0;
   left: 0;
   z-index: 6;
+  //display: block;
 `;
 
 export const PopNewCardContainer = styled.div`
@@ -51,7 +52,7 @@ export const PopNewCardTtl = styled.h3`
   margin-bottom: 20px;
 `;
 
-export const PopNewCardClose = styled.a`
+export const PopNewCardClose = styled.div`
   position: absolute;
   top: 20px;
   right: 30px;
