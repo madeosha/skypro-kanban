@@ -1,106 +1,83 @@
 import { Link, useParams } from "react-router-dom";
 import Calendar from "../Calendar/Calendar";
 import { routeObj } from "../../lib/const";
+import * as S from "../../components/PopBrowse/PopBrowse.styled";
 
 function PopBrowse() {
   const { id } = useParams();
 
   return (
-    <div className="pop-browse" id="popBrowse">
-      <div className="pop-browse__container">
-        <div className="pop-browse__block">
-          <div className="pop-browse__content">
-            <div className="pop-browse__top-block">
-              <h3 className="pop-browse__ttl">Задача № {id}</h3>
-              <div className="categories__theme theme-top _orange _active-category">
-                <p className="_orange">Web Design</p>
-              </div>
-            </div>
-            <div className="pop-browse__status status">
-              <p className="status__p subttl">Статус</p>
-              <div className="status__themes">
-                <div className="status__theme _hide">
+    <S.PopBrowse>
+      <S.PopBrowseContainer>
+        <S.PopBrowseBlock>
+          <S.PopBrowseContent>
+            <S.PopBrowseTopBlock>
+              <S.PopBrowseTtl>Название задачи</S.PopBrowseTtl>
+              <S.PopBrowseCategoriesTheme>
+                <p>Web Design</p>
+              </S.PopBrowseCategoriesTheme>
+            </S.PopBrowseTopBlock>
+            <S.PopBrowseStatus>
+              <S.StatusP>Статус</S.StatusP>
+              <S.StatusThemes>
+                <S.StatusThemeHide>
                   <p>Без статуса</p>
-                </div>
-                <div className="status__theme _gray">
-                  <p className="_gray">Нужно сделать</p>
-                </div>
-                <div className="status__theme _hide">
+                </S.StatusThemeHide>
+                <S.StatusThemeGray>
+                  <p>Нужно сделать</p>
+                </S.StatusThemeGray>
+                <S.StatusThemeHide>
                   <p>В работе</p>
-                </div>
-                <div className="status__theme _hide">
+                </S.StatusThemeHide>
+                <S.StatusThemeHide>
                   <p>Тестирование</p>
-                </div>
-                <div className="status__theme _hide">
+                </S.StatusThemeHide>
+                <S.StatusThemeHide>
                   <p>Готово</p>
-                </div>
-              </div>
-            </div>
-            <div className="pop-browse__wrap">
-              <form
-                className="pop-browse__form form-browse"
-                id="formBrowseCard"
-                action="#"
-              >
-                <div className="form-browse__block">
-                  <label htmlFor="textArea01" className="subttl">
+                </S.StatusThemeHide>
+              </S.StatusThemes>
+            </S.PopBrowseStatus>
+            <S.PopBrowseWrap>
+              <S.PopBrowseForm id="formBrowseCard" action="#">
+                <S.FormBrowseBlock>
+                  <S.PopBrowseLabelTtl htmlFor="textArea01">
                     Описание задачи
-                  </label>
-                  <textarea
-                    className="form-browse__area"
+                  </S.PopBrowseLabelTtl>
+                  <S.FormBrowseArea
                     name="text"
                     id="textArea01"
                     readOnly
-                    placeholder="Введите описание задачи..."
-                  ></textarea>
-                </div>
-              </form>
+                    placeholder="Описание задачи..."
+                  ></S.FormBrowseArea>
+                </S.FormBrowseBlock>
+              </S.PopBrowseForm>
 
               <Calendar />
               
-            </div>
-            <div className="theme-down__categories theme-down">
-              <p className="categories__p subttl">Категория</p>
-              <div className="categories__theme _orange _active-category">
-                <p className="_orange">Web Design</p>
-              </div>
-            </div>
-            <div className="pop-browse__btn-browse ">
-              <div className="btn-group">
-                <button className="btn-browse__edit _btn-bor _hover03">
+            </S.PopBrowseWrap>
+            <S.ThemeDownCategories>
+              <S.CategoriesPSubttl>Категория</S.CategoriesPSubttl>
+              <S.PopBrowseCategoriesTheme>
+                <p>Web Design</p>
+              </S.PopBrowseCategoriesTheme>
+            </S.ThemeDownCategories>
+            <S.PopBrowseBtnBrowse>
+              <S.BtnGroup>
+                <S.BtnBrowseEdit>
                   <a href="#">Редактировать задачу</a>
-                </button>
-                <button className="btn-browse__delete _btn-bor _hover03">
+                </S.BtnBrowseEdit>
+                <S.BtnBrowseEdit>
                   <a href="#">Удалить задачу</a>
-                </button>
-              </div>
-              <button className="btn-browse__close _btn-bg _hover01">
+                </S.BtnBrowseEdit>
+              </S.BtnGroup>
+              <S.BtnBrowseClose>
                 <Link to={routeObj.MAIN}>Закрыть</Link>
-              </button>
-            </div>
-            <div className="pop-browse__btn-edit _hide">
-              <div className="btn-group">
-                <button className="btn-edit__edit _btn-bg _hover01">
-                  <a href="#">Сохранить</a>
-                </button>
-                <button className="btn-edit__edit _btn-bor _hover03">
-                  <a href="#">Отменить</a>
-                </button>
-                <button
-                  className="btn-edit__delete _btn-bor _hover03"
-                  id="btnDelete"
-                >
-                  <a href="#">Удалить задачу</a>
-                </button>
-              </div>
-              <button className="btn-edit__close _btn-bg _hover01">
-                <Link to={routeObj.MAIN}>Закрыть</Link>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </S.BtnBrowseClose>
+            </S.PopBrowseBtnBrowse>
+          </S.PopBrowseContent>
+        </S.PopBrowseBlock>
+      </S.PopBrowseContainer>
+    </S.PopBrowse>
   );
 }
 
