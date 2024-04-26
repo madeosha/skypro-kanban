@@ -3,6 +3,7 @@ import {
   ContainerStyled,
   HeaderBlock,
   HeaderBtnMainNew,
+  HeaderLogoLight,
   HeaderNav,
   HeaderPopUserSet,
   HeaderStyled,
@@ -27,11 +28,11 @@ function Header({ onCardAdd, user }) {
     <HeaderStyled>
       <ContainerStyled>
         <HeaderBlock>
-          <div className="header__logo _show _light">
+          <HeaderLogoLight>
             <Link to="/">
               <img src="/logo.png" alt="logo" />
             </Link>
-          </div>
+          </HeaderLogoLight>
           <HeaderNav>
             <HeaderBtnMainNew onClick={onCardAdd}>
               <Link to={routeObj.NEW_CARD}>Создать новую задачу</Link>

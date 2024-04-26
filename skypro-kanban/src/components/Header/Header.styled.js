@@ -26,6 +26,18 @@ export const HeaderBlock = styled.div`
   padding: 0 10px;
 `;
 
+export const HeaderLogoLight = styled.div`
+  width: 85px;
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+
+  &:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+`;
+
 export const HeaderNav = styled.nav`
   max-width: 290px;
   padding: 0;
