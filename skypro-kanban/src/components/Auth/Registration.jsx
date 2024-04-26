@@ -4,8 +4,10 @@ import { Wrapper } from "../../styles/Common.styled";
 import * as S from "../Auth/Login.styled";
 import { authToDos } from "../../api";
 import { useState } from "react";
+import { useUserContext } from "../../contexts/hooks/useUser";
 
-function Registration({userLogin}) {
+function Registration() {
+  const {userLogin} = useUserContext();
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -54,7 +56,7 @@ function Registration({userLogin}) {
                 <Link>Зарегистрироваться</Link>{" "}
               </S.ModalBtnEnter>
               <S.ModalFormGroup>
-              {error && (<p style={{color: "red"}}>Пользователь с таким логином уже существует</p> ) }
+              {error && (<p style={{color: "red"}}>{error}</p>) }
                 <p>
                   Уже есть аккаунт?{" "}
                   <Link to={routeObj.LOGIN} error="error">Войдите здесь</Link>

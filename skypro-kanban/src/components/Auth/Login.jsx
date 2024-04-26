@@ -4,9 +4,10 @@ import { Wrapper } from "../../styles/Common.styled";
 import * as S from "../Auth/Login.styled";
 import { useState } from "react";
 import { loginToDos } from "../../api";
+import { useUserContext } from "../../contexts/hooks/useUser";
 
-
-function Login({ userLogin }) {
+function Login() {
+  const { userLogin } = useUserContext();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 

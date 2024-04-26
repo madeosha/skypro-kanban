@@ -9,6 +9,8 @@ import {
 import Header from "../Header/Header";
 import { Loading, Wrapper } from "../../styles/Common.styled";
 import { getToDos } from "../../api.js";
+import { useUserContext } from "../../contexts/hooks/useUser";
+import { useTaskContext } from "../../contexts/hooks/useTask";
 
 //Колонки
 const statusList = [
@@ -19,29 +21,19 @@ const statusList = [
   "Готово",
 ];
 
-function MainContent({user}) {
-  //Создание переменной состояния
-  const [cards, setCards] = useState([]);
-  //Функция добавления новой задачи
-  const onCardAdd = () => {
-    const newCard = {
-      _id: cards.length + 1,
-      topic: "Новая задача",
-      title: "Новая задача",
-      date: "30.10.23",
-      status: "Без статуса",
-    };
-    setCards([...cards, newCard]);
-  };
+function MainContent() {
+  const { user } = useUserContext();
+  const { cards } = useTaskContext();
+  const { setCards } = useTaskContext();
 
   //Эмуляция загрузки карточки
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getToDos({token: user.token})
+    getToDos({ token: user.token })
       .then((cards) => {
-        setCards(cards.tasks)
+        setCards(cards.tasks);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -49,13 +41,13 @@ function MainContent({user}) {
       })
       .finally(() => {
         setIsLoading(false);
-      })
+      });
   }, [user]);
-
+  
   return (
     <Wrapper>
       <MainStyled>
-        <Header onCardAdd={onCardAdd} user={user.name} />
+        <Header user={user.name} />
         <MainContainerStyled>
           <MainBlock>
             <MainContentStyled>

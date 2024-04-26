@@ -29,6 +29,12 @@ export const CardGroup = styled.div`
   justify-content: space-between;
 `;
 
+export const TopicText = styled.p`
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 10px;
+`;
+
 export const CardTheme = styled.div`
   width: auto;
   height: 20px;
@@ -37,11 +43,8 @@ export const CardTheme = styled.div`
   background-color: ${({ $topicColor }) =>
     topicStyles[$topicColor]?.backgroundColor || "#94a6be"};
 
-  & p {
-    font-size: 10px;
-    font-weight: 600;
-    line-height: 10px;
-    color: ${({ $topicColor }) => topicStyles[$topicColor]?.color || "#ffffff"};
+  ${TopicText} {
+    color: ${({ $topicColor }) => topicStyles[$topicColor]?.color || "#06b16e"};
   }
 `;
 
