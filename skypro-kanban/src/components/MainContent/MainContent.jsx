@@ -42,12 +42,12 @@ function MainContent() {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [user]);
+  }, []);
   
   return (
     <Wrapper>
       <MainStyled>
-        <Header user={user.name} />
+        <Header />
         <MainContainerStyled>
           <MainBlock>
             <MainContentStyled>

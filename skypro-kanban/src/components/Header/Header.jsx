@@ -3,22 +3,21 @@ import {
   ContainerStyled,
   HeaderBlock,
   HeaderBtnMainNew,
-  HeaderLogoLight,
+  HeaderLogo,
   HeaderNav,
   HeaderPopUserSet,
   HeaderStyled,
   HeaderUser,
   PopUserSetButton,
-  PopUserSetButtonLink,
   PopUserSetMail,
   PopUserSetName,
-  PopUserSetTheme,
-  PopUserSetThemeInput,
 } from "./Header.styled";
 import { Link } from "react-router-dom";
 import { routeObj } from "../../lib/const";
+import { useUserContext } from "../../contexts/hooks/useUser";
 
-function Header({ onCardAdd, user }) {
+function Header() {
+  const { user } = useUserContext();
   //Создание переменной состояния
   const [isOpen, setIsOpen] = useState(false);
   //Функция, переключающая состояние (выпадение модального окна)
@@ -28,27 +27,22 @@ function Header({ onCardAdd, user }) {
     <HeaderStyled>
       <ContainerStyled>
         <HeaderBlock>
-          <HeaderLogoLight>
+          <HeaderLogo>
             <Link to="/">
               <img src="/logo.png" alt="logo" />
             </Link>
-          </HeaderLogoLight>
+          </HeaderLogo>
           <HeaderNav>
-            <HeaderBtnMainNew onClick={onCardAdd}>
+            <HeaderBtnMainNew>
               <Link to={routeObj.NEW_CARD}>Создать новую задачу</Link>
             </HeaderBtnMainNew>
-            <HeaderUser onClick={ToggleDropdown}>{user}</HeaderUser>
+            <HeaderUser onClick={ToggleDropdown}>{user.name}</HeaderUser>
             {isOpen && (
               <HeaderPopUserSet>
-                <PopUserSetName>{user}</PopUserSetName>
-                <PopUserSetMail>ivan.ivanov@gmail.com</PopUserSetMail>
-                <PopUserSetTheme>
-                  <p>Темная тема</p>
-                  <PopUserSetThemeInput type="checkbox" name="checkbox" />
-                </PopUserSetTheme>
-                <PopUserSetButton type="button">
+                <PopUserSetName>{user.name}</PopUserSetName>
+                <PopUserSetMail>{user.login}</PopUserSetMail>
+                <PopUserSetButton>
                   <Link to={routeObj.EXIT}>Выйти</Link>
-                  <PopUserSetButtonLink></PopUserSetButtonLink>
                 </PopUserSetButton>
               </HeaderPopUserSet>
             )}

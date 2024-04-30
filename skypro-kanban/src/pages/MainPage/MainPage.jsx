@@ -1,11 +1,10 @@
-import React from "react";
 import MainContent from "../../components/MainContent/MainContent";
 import { Outlet } from "react-router-dom";
 
-const MainPage = ({user}) => {
+const MainPage = () => {
   return (
     <>
-      <MainContent user={user} />
+      <MainContent />
       <Outlet />
     </>
   );

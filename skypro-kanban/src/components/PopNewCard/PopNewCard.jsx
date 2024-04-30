@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { routeObj } from "../../lib/const";
 import { useUserContext } from "../../contexts/hooks/useUser";
 import { useTaskContext } from "../../contexts/hooks/useTask";
-import { topicWithColors, topicsMeanings, topicHeader } from "../../lib/topic";
+import { topicWithColors } from "../../lib/topic";
 
 function PopNewCard() {
   const [newTask, setNewTask] = useState({

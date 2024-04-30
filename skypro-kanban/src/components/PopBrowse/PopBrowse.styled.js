@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { hover01, hover03 } from "../../styles/Common.styled";
+import { topicStyles } from "../../lib/topic";
 
 export const PopBrowse = styled.div`
   display: block;
@@ -11,10 +12,6 @@ export const PopBrowse = styled.div`
   top: 0;
   left: 0;
   z-index: 7;
-
-  &:target {
-  display: block;
-}
 `;
 
 export const PopBrowseContainer = styled.div`
@@ -44,10 +41,6 @@ export const PopBrowseBlock = styled.div`
 export const PopBrowseContent = styled.div`
   display: block;
   text-align: left;
-  opacity: 1;
-  display: none;
-  margin-bottom: 20px;
-  display: block;
 `;
 
 export const PopBrowseTopBlock = styled.div`
@@ -55,6 +48,13 @@ export const PopBrowseTopBlock = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
+`;
+
+export const Status = styled.div`
+  margin-bottom: 11px;
+  p {
+    margin-bottom: 14px;
+  }
 `;
 
 export const PopBrowseTtl = styled.h3`
@@ -71,33 +71,16 @@ export const PopBrowseCategoriesTheme = styled.div`
   padding: 8px 20px;
   border-radius: 24px;
   margin-right: 7px;
-  opacity: 0.4;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 14px;
-  white-space: nowrap;
-  opacity: 1;
-  display: block;
-  background-color: #ffe4c2;
-  color: #ff6d00;
-  opacity: 1 !important;
 
   & p {
-    background-color: #ffe4c2;
-    color: #ff6d00;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    white-space: nowrap;
   }
-`;
-
-export const PopBrowseStatus = styled.div`
-  margin-bottom: 11px;
-`;
-
-export const StatusP = styled.p`
-  margin-bottom: 14px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
+  color: ${({ $topicColor }) => topicStyles[$topicColor]?.color || "#06b16e"};
+  background-color: ${({ $topicColor }) =>
+    topicStyles[$topicColor]?.backgroundColor || "#b4fdd1"};
 `;
 
 export const StatusThemes = styled.div`
@@ -105,31 +88,18 @@ export const StatusThemes = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
-`;
-
-export const StatusThemeHide = styled.div`
-  border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94a6be;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
-  display: none;
-`;
-
-export const StatusThemeGray = styled.div`
-  border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94a6be;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
-
-  & p {
-    font-size: 14px;
-    line-height: 1;
-    letter-spacing: -0.14px;
+  input[type="radio"] {
+    display: none;
   }
+`;
+
+export const StatusTheme = styled.label`
+  border-radius: 24px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  color: #94a6be;
+  padding: 11px 14px 10px;
+  margin-right: 7px;
+  margin-bottom: 7px;
 `;
 
 export const PopBrowseWrap = styled.div`
@@ -148,13 +118,6 @@ export const PopBrowseForm = styled.form`
 export const FormBrowseBlock = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const PopBrowseLabelTtl = styled.label`
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
 `;
 
 export const FormBrowseArea = styled.textarea`
@@ -188,61 +151,53 @@ export const FormBrowseArea = styled.textarea`
   }
 `;
 
-export const ThemeDownCategories = styled.div`
-    display: none;
-  margin-bottom: 20px;
-`;
-
-export const CategoriesPSubttl = styled.p`
-    margin-bottom: 14px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-`; 
-
 export const PopBrowseBtnBrowse = styled.div`
- display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-`;
-
-export const BtnGroup = styled.div`
-margin-right: 8px;
-`;
-
-export const BtnBrowseEdit = styled.button`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  border-radius: 4px;
-  border: 0.7px solid var(--palette-navy-60, #565EEF);
-  outline: none;
-  background: transparent;
-  color: #565EEF;
-  ${hover03}
-
-  & a{
-    color: #565EEF;
+  button {
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0 14px;
   }
 `;
 
-export const BtnBrowseClose = styled.button`
+export const BtnGroup = styled.div`
+  button {
+    margin-right: 8px;
+  }
+`;
+
+export const BtnBor = styled.button`
+  border-radius: 4px;
+  border: 0.7px solid var(--palette-navy-60, #565eef);
+  outline: none;
+  background: transparent;
+  color: #565eef;
+  ${hover03}
+`;
+
+export const BtnBg = styled.button`
+  border-radius: 4px;
+  background: #565eef;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  ${hover01}
+  p {
+    color: #ffffff;
+  }
+`;
+
+export const PopBrowseBtnEdit = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  border-radius: 4px;
-  background: #565EEF;
-  border: none;
-  outline: none;
-  color: #FFFFFF;
-
-  ${hover01};
+  button {
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 0 14px;
+  }
 `;

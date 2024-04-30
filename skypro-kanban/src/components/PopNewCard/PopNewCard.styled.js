@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { hover01 } from "../../styles/Common.styled";
 import { topicStyles } from "../../lib/topic";
-import { TopicText } from "../Card/Card.styled";
+//import { TopicText } from "../Card/Card.styled";
 
 export const PopNewCard = styled.div`
   width: 100%;
@@ -12,7 +12,6 @@ export const PopNewCard = styled.div`
   top: 0;
   left: 0;
   z-index: 6;
-  //display: block;
 `;
 
 export const PopNewCardContainer = styled.div`
