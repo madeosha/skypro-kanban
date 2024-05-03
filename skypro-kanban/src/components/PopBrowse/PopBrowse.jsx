@@ -8,14 +8,12 @@ import { useTaskContext } from "../../contexts/hooks/useTask";
 import { status, topicHeader } from "../../lib/topic";
 import { deleteTodo, editTodo } from "../../api";
 
-
 function PopBrowse() {
   const { id } = useParams();
   const { user } = useUserContext();
   const [isEdited, setIsEdited] = useState(false);
   const { cards, setCards } = useTaskContext();
   const card = cards.find((item) => item._id === id);
-  console.log("card");
   const [error, setError] = useState(null);
   const [selected, setSelected] = useState();
   const navigate = useNavigate();
@@ -47,7 +45,7 @@ function PopBrowse() {
       });
   }
 
-  function editedTask() {    
+  function editedTask() {
     editTodo({
       token: user?.token,
       id,
@@ -110,9 +108,9 @@ function PopBrowse() {
             <S.PopBrowseWrap>
               <S.PopBrowseForm>
                 <S.FormBrowseBlock>
-                  <label htmlFor="textArea01">
-                    Описание задачи: {card.title}
-                  </label>
+                  <S.PopBrowseLabel>
+                    <p>Описание задачи</p>
+                  </S.PopBrowseLabel>
                   {!isEdited && (
                     <S.FormBrowseArea
                       disabled={true}

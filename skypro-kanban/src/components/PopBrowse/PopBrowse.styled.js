@@ -52,7 +52,9 @@ export const PopBrowseTopBlock = styled.div`
 
 export const Status = styled.div`
   margin-bottom: 11px;
-  p {
+  & p {
+    font-size: 14px;
+    font-weight: 600;
     margin-bottom: 14px;
   }
 `;
@@ -118,6 +120,11 @@ export const PopBrowseForm = styled.form`
 export const FormBrowseBlock = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const PopBrowseLabel = styled.label`
+  font-size: 14px;
+  font-weight: bold;
 `;
 
 export const FormBrowseArea = styled.textarea`
