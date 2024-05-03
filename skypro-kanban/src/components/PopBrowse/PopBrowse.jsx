@@ -15,6 +15,7 @@ function PopBrowse() {
   const [isEdited, setIsEdited] = useState(false);
   const { cards, setCards } = useTaskContext();
   const card = cards.find((item) => item._id === id);
+  console.log("card");
   const [error, setError] = useState(null);
   const [selected, setSelected] = useState();
   const navigate = useNavigate();

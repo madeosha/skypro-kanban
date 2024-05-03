@@ -58,7 +58,7 @@ export const HeaderBtnMainNew = styled.button`
   font-weight: 500;
   margin-right: 20px;
   ${hover01};
-  & p {
+  & a {
   color: #FFFFFF;
   }
 `;
@@ -131,7 +131,7 @@ export const PopUserSetButton = styled.button`
   border-radius: 4px;
   border: 1px solid #565eef;
   ${hover03}
-  &:hover p {
+  &:hover a {
     color: #ffffff;
   }
 `;
