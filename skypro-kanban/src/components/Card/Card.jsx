@@ -11,6 +11,7 @@ import {
   TopicText,
 } from "./Card.styled";
 import { topicHeader } from "../../lib/topic";
+import { formatDate } from "../../lib/formatDate";
 
 function Card({ theme, title, date, id }) {
   return (
@@ -61,7 +62,7 @@ function Card({ theme, title, date, id }) {
                 </clipPath>
               </defs>
             </svg>
-            <p>{date}</p>
+            <p>{formatDate(date)}</p>
           </CardDate>
         </CardContent>
       </CardsCard>
