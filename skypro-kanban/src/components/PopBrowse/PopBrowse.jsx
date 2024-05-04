@@ -133,7 +133,10 @@ function PopBrowse() {
                   )}
                 </S.FormBrowseBlock>
               </S.PopBrowseForm>
-              <Calendar selected={selected} setSelected={setSelected} />
+              <S.PopBrowseWrap2>
+                <S.PopBrowseDate>Даты</S.PopBrowseDate>
+                <Calendar selected={selected} setSelected={setSelected} />
+              </S.PopBrowseWrap2>
             </S.PopBrowseWrap>
             {!isEdited && (
               <S.PopBrowseBtnBrowse>

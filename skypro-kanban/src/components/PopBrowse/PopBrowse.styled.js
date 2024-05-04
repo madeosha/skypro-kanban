@@ -158,6 +158,21 @@ export const FormBrowseArea = styled.textarea`
   }
 `;
 
+export const PopBrowseWrap2 = styled.div`
+  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+
+export const PopBrowseDate = styled.div`
+  color: #000;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 22px;
+`;
+
 export const PopBrowseBtnBrowse = styled.div`
   display: flex;
   flex-wrap: wrap;

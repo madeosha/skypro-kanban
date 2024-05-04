@@ -9,7 +9,7 @@ function Calendar({selected, setSelected}) {
   if (selected) {
     footer = <p>Вы выбрали {format(selected, 'PP', {locale: ru})}.</p>;
   }
-  return (
+  return (    
     <DayPicker locale={ru}
       mode="single"
       selected={selected}

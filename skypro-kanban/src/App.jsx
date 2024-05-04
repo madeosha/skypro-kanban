@@ -1,4 +1,3 @@
-import './App.css';
 import { GlobalStyle } from './styles/Global.styled';
 import AppRoutes from './Routes';
 
