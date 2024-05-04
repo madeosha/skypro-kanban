@@ -70,7 +70,10 @@ function PopNewCard() {
                   ></S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
-              <Calendar selected={selected} setSelected={setSelected} />
+              <S.FormNewBlock>
+                <S.PopNewCardDate>Даты</S.PopNewCardDate>
+                <Calendar selected={selected} setSelected={setSelected} />
+              </S.FormNewBlock>
             </S.PopNewCardWrap>
             <S.Categories>
               <S.CategoriesP>Категория</S.CategoriesP>

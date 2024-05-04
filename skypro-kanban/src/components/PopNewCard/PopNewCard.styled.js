@@ -87,6 +87,13 @@ export const Subttl = styled.label`
   line-height: 1;
 `;
 
+export const PopNewCardDate = styled.div`
+color: #000;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 22px;
+`;
+
 export const FormNewInput = styled.input`
   width: 100%;
   outline: none;
