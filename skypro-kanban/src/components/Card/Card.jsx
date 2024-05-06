@@ -11,8 +11,9 @@ import {
   TopicText,
 } from "./Card.styled";
 import { topicHeader } from "../../lib/topic";
+import { formatDate } from "../../lib/formatDate";
 
-function Card({ theme, title, date, _id }) {
+function Card({ theme, title, date, id }) {
   return (
     <CardsItem>
       <CardsCard>
@@ -20,12 +21,12 @@ function Card({ theme, title, date, _id }) {
           <CardTheme $topicColor={topicHeader[theme]}>
             <TopicText>{theme}</TopicText>
           </CardTheme>
-          <Link to={`/card/${_id}`}>
-          <CardBtn>
-            <div></div>
-            <div></div>
-            <div></div>
-          </CardBtn>
+          <Link to={`/card/${id}`}>
+            <CardBtn>
+              <div></div>
+              <div></div>
+              <div></div>
+            </CardBtn>
           </Link>
         </CardGroup>
         <CardContent>
@@ -61,7 +62,7 @@ function Card({ theme, title, date, _id }) {
                 </clipPath>
               </defs>
             </svg>
-            <p>{date}</p>
+            <p>{formatDate(date)}</p>
           </CardDate>
         </CardContent>
       </CardsCard>

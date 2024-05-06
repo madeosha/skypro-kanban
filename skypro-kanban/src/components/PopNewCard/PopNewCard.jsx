@@ -3,11 +3,11 @@ import { useState } from "react";
 import Calendar from "../Calendar/Calendar";
 import * as S from "../PopNewCard/PopNewCard.styled";
 import { postToDo } from "../../api";
-//import { Link } from "react-router-dom";
-//import { routeObj } from "../../lib/const";
+import { Link } from "react-router-dom";
+import { routeObj } from "../../lib/const";
 import { useUserContext } from "../../contexts/hooks/useUser";
 import { useTaskContext } from "../../contexts/hooks/useTask";
-import { topicWithColors, topicsMeanings, topicHeader } from "../../lib/topic";
+import { topicWithColors } from "../../lib/topic";
 
 function PopNewCard() {
   const [newTask, setNewTask] = useState({
@@ -47,7 +47,7 @@ function PopNewCard() {
             <S.PopNewCardTtl>Создание задачи</S.PopNewCardTtl>
             <S.PopNewCardClose>
               {" "}
-              {/*} <Link to={routeObj.MAIN}>&#10006;</Link>*/}
+              <Link to={routeObj.MAIN}>&#10006;</Link>
             </S.PopNewCardClose>
             <S.PopNewCardWrap>
               <S.PopNewCardForm action="#">
@@ -70,7 +70,10 @@ function PopNewCard() {
                   ></S.FormNewArea>
                 </S.FormNewBlock>
               </S.PopNewCardForm>
-              <Calendar selected={selected} setSelected={setSelected} />
+              <S.FormNewBlock>
+                <S.PopNewCardDate>Даты</S.PopNewCardDate>
+                <Calendar selected={selected} setSelected={setSelected} />
+              </S.FormNewBlock>
             </S.PopNewCardWrap>
             <S.Categories>
               <S.CategoriesP>Категория</S.CategoriesP>

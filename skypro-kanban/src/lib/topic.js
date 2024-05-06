@@ -19,14 +19,22 @@ export const topicStyles = {
 
 export const topicHeader = {
   "Web Design": "_orange",
-  "Research": "_green",
-  "Copywriting": "_purple"
-}
+  Research: "_green",
+  Copywriting: "_purple",
+};
 
-export const topicsMeanings = ["Web Design", "Research","Copywriting" ];
+export const topicsMeanings = ["Web Design", "Research", "Copywriting"];
 
-export const topicWithColors =[
-  {topic: "Web Design", color:"_orange"},
-  {topic: "Research", color:"_green"},
-  {topic: "Copywriting", color:"_purple"}
-]
+export const topicWithColors = [
+  { topic: "Web Design", color: "_orange" },
+  { topic: "Research", color: "_green" },
+  { topic: "Copywriting", color: "_purple" },
+];
+
+export const status = [
+  "Без статуса",
+  "Нужно сделать",
+  "В работе",
+  "Тестирование",
+  "Готово",
+];

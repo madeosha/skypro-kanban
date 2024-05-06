@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { hover01 } from "../../styles/Common.styled";
 import { topicStyles } from "../../lib/topic";
-import { TopicText } from "../Card/Card.styled";
+//import { TopicText } from "../Card/Card.styled";
 
 export const PopNewCard = styled.div`
   width: 100%;
@@ -51,7 +51,7 @@ export const PopNewCardTtl = styled.h3`
   margin-bottom: 20px;
 `;
 
-export const PopNewCardClose = styled.a`
+export const PopNewCardClose = styled.div`
   position: absolute;
   top: 20px;
   right: 30px;
@@ -85,6 +85,13 @@ export const Subttl = styled.label`
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
+`;
+
+export const PopNewCardDate = styled.div`
+color: #000;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 22px;
 `;
 
 export const FormNewInput = styled.input`

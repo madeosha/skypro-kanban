@@ -5,11 +5,12 @@ import { DayPicker } from 'react-day-picker';
 
 function Calendar({selected, setSelected}) {
 
-  let footer = <p>Выберите срок исполнения.</p>;
+  let footer = <p>Срок исполнения:</p>;
   if (selected) {
     footer = <p>Вы выбрали {format(selected, 'PP', {locale: ru})}.</p>;
   }
-  return (
+  
+  return (    
     <DayPicker locale={ru}
       mode="single"
       selected={selected}
